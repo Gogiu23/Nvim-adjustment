@@ -24,5 +24,7 @@ if 1
         endif
     endif
     execute 'source' fnamemodify(expand('<sfile>'), ':h').'/main.vim'
+let g:user42 = 'gdomini'
+let g:mail42 = 'gdominic@student.42.fr'
 endif
 " vim:set et sw=2
