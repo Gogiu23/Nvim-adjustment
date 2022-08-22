@@ -65,3 +65,4 @@ call SpaceVim#end()
 
 call SpaceVim#logger#info('finished loading SpaceVim!')
 " vim:set et sw=2 cc=80:
+let g:webdevicons_enable_vimfiler = 1

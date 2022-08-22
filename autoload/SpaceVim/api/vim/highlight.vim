@@ -11,7 +11,7 @@ let s:self = {}
 
 " the key of a highlight should be:
 " name: the name of the highlight group
-" ctermbg: background color in cterm
+"ctermbg: background color in cterm
 " ctermfg: fround color in cterm
 " bold: if bold?
 " italic: if italic?
