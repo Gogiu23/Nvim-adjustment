@@ -155,9 +155,9 @@ function! airline#init#bootstrap()
         \ 'raw': '/%L%{g:airline_symbols.maxlinenr}',
         \ 'accent': 'bold'})
   call airline#parts#define_function('ffenc', 'airline#parts#ffenc')
-  call airline#parts#define('hunks', {
-        \ 'raw': '',
-        \ 'minwidth': 100})
+""  call airline#parts#define('hunks', {
+""        \ 'raw': '',
+""        \ 'minwidth': 100})
   call airline#parts#define('branch', {
         \ 'raw': '',
         \ 'minwidth': 80})
@@ -192,7 +192,7 @@ function! airline#init#sections()
     let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'keymap', 'spell', 'capslock', 'xkblayout', 'iminsert'])
   endif
   if !exists('g:airline_section_b')
-    let g:airline_section_b = airline#section#create(['hunks', 'branch'])
+    let g:airline_section_b = airline#section#create(['branch'])
   endif
   if !exists('g:airline_section_c')
     if exists("+autochdir") && &autochdir == 1

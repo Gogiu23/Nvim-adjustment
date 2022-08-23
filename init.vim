@@ -17,12 +17,80 @@ set mouse=a
 "==============================================================================
 "						AIRLINE CONFIG NEOVIM
 "==============================================================================				
-"let g:airline_powerline_fonts = 1
+let g:airline_section_c = ''
+let g:airline_section_y = ''
+let g:airline_section_warning = ''
+let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#battery#enabled = 1
 let g:airline_theme='powerlineish'
 "let g:airline#extensions#coc#enabled = 1
 "let g:airline#extensions#tabline#formatter = 'unique_tail'
+"Enable fugitive
+let g:airline##extensions#branch#vcs_checks = ['untracked', 'dirty']
+let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#use_vcscommand = 1
+let g:airline#extensions#branch#empty_message = 'NULL'
+let g:airline_symbols.notexists = '🔱'
+let g:airline_symbols.dirty = '⚡️'
+let g:airline#extensions#default#section_truncate_width = {}
+let g:airline#extensions#default#section_width = {
+	\ 'a': 0,
+    \ 'b': 1,
+    \ 'z': 45,
+    \ }
+let g:airline#extensions#default#layout = [
+  \ ['a', 'b'],
+  \ ['z']
+  \ ]
+let g:airline#extensions#hunks#enabled = 0
+"if !exists('g:airline_symbols')
+"  let g:airline_symbols = {}
+"endif
+"
+"  " unicode symbols
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.colnr = ' ㏇:'
+"let g:airline_symbols.colnr = ' ℅:'
+"let g:airline_symbols.crypt = '🔒'
+"let g:airline_symbols.linenr = '☰'
+"let g:airline_symbols.linenr = ' ␊:'
+"let g:airline_symbols.linenr = ' ␤:'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.maxlinenr = ''
+"let g:airline_symbols.maxlinenr = '㏑'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.spell = 'Ꞩ'
+"let g:airline_symbols.notexists = 'Ɇ'
+"let g:airline_symbols.whitespace = 'Ξ'
+"
+"" powerline symbols
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+"let g:airline_symbols.colnr = ' ℅:'
+"let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+"let g:airline_symbols.dirty='⚡'
+
+  " old vim-powerline symbols
+""  let g:airline_left_sep = '⮀'
+""  let g:airline_left_alt_sep = '⮁'
+""  let g:airline_right_sep = '⮂'
+""  let g:airline_right_alt_sep = '⮃'
+""  let g:airline_symbols.branch = '⭠'
+""  let g:airline_symbols.readonly = '⭤'
+""  let g:airline_symbols.linenr = '⭡'
 "==============================================================================
 "						BATTERYSTATUS CONFIG NEOVIM
 "==============================================================================
@@ -31,9 +99,10 @@ let g:battery#update_statusline = 1 " For statusline.
 let g:battery_watch_on_startup = 1
 let g:battery#update_interval = 300
 let g:battery#graph_symbol_fill = "🟩"
-let g:battery#graph_symbol_null = "⬛️"
+let g:battery#graph_symbol_null = "⬜️"
 let g:battery#symbol_charging = "❤️"
 let g:battery#symbol_discharging = "💔"
+let g:battery#graph_width = '10'
 "*****************************************************************************#
 "		      			CONFIG DEVICONS AND NERDTREE						  #
 "*****************************************************************************#
