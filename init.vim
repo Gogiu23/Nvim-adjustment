@@ -5,6 +5,9 @@
 " URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
+"============================================================================
+"						  GENERAL CONFIG NVIM								  
+						  
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/main.vim'
 
 highlight Comment cterm=italic gui=italic
@@ -14,6 +17,11 @@ set number
 set encoding=utf8
 " vim:set et sw=2
 set mouse=a
+highlight Comment cterm=italic gui=italic
+set clipboard=unnamedplus
+set timeoutlen=50
+au BufWinLeave *.* silent mkview
+au BufWinEnter *.* silent loadview
 "==============================================================================
 "						AIRLINE CONFIG NEOVIM
 "==============================================================================				
@@ -168,10 +176,9 @@ let g:WebDevIconsDefaultFolderSymbolColor = s:beige " sets the color for folders
 let g:WebDevIconsDefaultFileSymbolColor = s:purple " sets the color for files that did not match any rule
 "************************************************************************************************************#
 
-highlight Comment cterm=italic gui=italic
-set clipboard=unnamedplus
-set timeoutlen=50
 lua << end
+						 -- TELESCOPE CONFIG IN LUA
+						  
 local telescope = require("telescope")
 telescope.setup({
         defaults = {

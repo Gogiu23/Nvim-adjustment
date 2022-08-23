@@ -74,7 +74,7 @@ endfunction
   call s:hi('ErrorMsg',                           s:red,    s:base00, '',          '')
   call s:hi('Exception',                          s:red,    '',       '',          '')
   call s:hi('FoldColumn',                         s:blue,   s:base00, '',          '')
-  call s:hi('Folded',                             s:base03, s:base01, s:italic,    '')
+  call s:hi('Folded',                             s:yellow, s:base01, s:italic,    '')
   call s:hi('IncSearch',                          s:base01, s:orange, 'NONE',      '')
   call s:hi('Italic',                             '',       '',       s:italic,    '')
 
@@ -120,7 +120,7 @@ endfunction
   " Standard syntax highlighting
   call s:hi('Boolean',                            s:orange, '',       '',          '')
   call s:hi('Character',                          s:red,    '',       '',          '')
-  call s:hi('Comment',                            s:base03, '',       s:italic,    '')
+  call s:hi('Comment',                            s:cyan,   '',       s:italic,    '')
   call s:hi('Conditional',                        s:purple, '',       '',          '')
   call s:hi('Constant',                           s:orange, '',       '',          '')
   call s:hi('Define',                             s:purple, '',       '',          '')
