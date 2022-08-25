@@ -9,7 +9,8 @@
 "						  GENERAL CONFIG NVIM								  
 						  
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/main.vim'
-
+let g:user42 = 'gdominic'
+let g:mail42 = 'gdominic@student.42barcelona.com'
 highlight Comment cterm=italic gui=italic
 set noexpandtab shiftwidth=4 tabstop=4
 syntax enable
@@ -31,7 +32,7 @@ let g:airline_section_warning = ''
 let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#battery#enabled = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='google_dark'
 "let g:airline#extensions#coc#enabled = 1
 "let g:airline#extensions#tabline#formatter = 'unique_tail'
 "Enable fugitive
@@ -44,8 +45,8 @@ let g:airline_symbols.notexists = '🔱'
 let g:airline_symbols.dirty = '⚡️'
 let g:airline#extensions#default#section_truncate_width = {}
 let g:airline#extensions#default#section_width = {
-	\ 'a': 0,
-    \ 'b': 1,
+	\ 'a': 10,
+    \ 'b': 10,
     \ 'z': 45,
     \ }
 let g:airline#extensions#default#layout = [
