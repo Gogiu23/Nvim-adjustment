@@ -20,7 +20,7 @@ set mouse=a
 highlight Comment cterm=italic gui=italic
 set clipboard=unnamedplus
 set timeoutlen=50
-au BufWinLeave *.* silent mkview
+au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 "==============================================================================
 "						AIRLINE CONFIG NEOVIM
