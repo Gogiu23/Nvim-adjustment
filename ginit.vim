@@ -10,7 +10,7 @@ if exists('g:GuiLoaded')
   if exists('g:spacevim_guifont') && !empty(g:spacevim_guifont)
     exe 'Guifont! ' . g:spacevim_guifont
   else
-    exe 'Guifont! SauceCodePro Nerd Font Mono:h11:cANSI:qDRAFT'
+    exe 'Guifont! VictorMono Nerd Font Mono:h11:cANSI:qDRAFT'
   endif
   " As using neovim-qt by default
 
@@ -20,7 +20,7 @@ if exists('g:GuiLoaded')
   endif
 
   " Disbale gui tabline
-  if exists(':GuiTabline') == 2
+  if exists(':GuiTabline') == 0
     GuiTabline 0
   endif
 endif

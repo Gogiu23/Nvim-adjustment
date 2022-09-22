@@ -14,7 +14,6 @@ let g:mail42 = 'gdominic@student.42barcelona.com'
 highlight Comment cterm=italic gui=italic
 set noexpandtab shiftwidth=4 tabstop=4
 syntax enable
-set number
 set encoding=utf8
 " vim:set et sw=2
 set mouse=a
@@ -23,6 +22,21 @@ set clipboard=unnamedplus
 set timeoutlen=50
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
+set spell
+set number
+"=========================KEYMAPS============================================
+"*************
+"MOVING TEXT *
+"*************
+vnoremap <C-Down> :m '>+1<CR>gv=gv
+vnoremap <C-Up> :m '<-2<CR>gv=gv
+"***************
+"RESIZE WINDOWS*
+"***************
+nnoremap <C-k>    :resize +2<CR>
+nnoremap <C-j>  :resize -2<CR>
+nnoremap <C-l>  :vertical resize -2<CR>
+nnoremap <C-h> :vertical resize +2<CR>
 "==============================================================================
 "						AIRLINE CONFIG NEOVIM
 "==============================================================================				
