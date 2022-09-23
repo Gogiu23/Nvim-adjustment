@@ -7,29 +7,36 @@
 "=============================================================================
 "============================================================================
 "						  GENERAL CONFIG NVIM								  
-						  
+"============================================================================
+" vim:set et sw=2
+"highlight Comment cterm=italic gui=italic
+"set spell
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/main.vim'
 let g:user42 = 'gdominic'
 let g:mail42 = 'gdominic@student.42barcelona.com'
-highlight Comment cterm=italic gui=italic
 set noexpandtab shiftwidth=4 tabstop=4
 syntax enable
 set encoding=utf8
-" vim:set et sw=2
 set mouse=a
-highlight Comment cterm=italic gui=italic
 set clipboard=unnamedplus
 set timeoutlen=50
+let g:oceanic_bold = 1
+let g:oceanic_italic_comments = 1
+colorscheme oceanicnext
+hi LineNrAbove guifg=#1E90FF
+hi LineNrBelow guifg=#FFD700
+hi CursorLineNr guifg=#FF8C00
+hi Comment gui=italic
+hi Normal guibg = #001a33
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
-set spell
 set number
 "=========================KEYMAPS============================================
 "*************
 "MOVING TEXT *
 "*************
-vnoremap <C-Down> :m '>+1<CR>gv=gv
-vnoremap <C-Up> :m '<-2<CR>gv=gv
+vnoremap <S-Down> :m '>+1<CR>gv=gv
+vnoremap <S-Up> :m '<-2<CR>gv=gv
 "***************
 "RESIZE WINDOWS*
 "***************
@@ -40,16 +47,16 @@ nnoremap <C-h> :vertical resize +2<CR>
 "==============================================================================
 "						AIRLINE CONFIG NEOVIM
 "==============================================================================				
+"let g:airline#extensions#coc#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'unique_tail'
+"Enable fugitive
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_c = ''
 let g:airline_section_y = ''
 let g:airline_section_warning = ''
 let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#battery#enabled = 1
-let g:airline_theme='google_dark'
-"let g:airline#extensions#coc#enabled = 1
-"let g:airline#extensions#tabline#formatter = 'unique_tail'
-"Enable fugitive
+let g:airline_theme='oceanicnext'
 let g:airline##extensions#branch#vcs_checks = ['untracked', 'dirty']
 let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
