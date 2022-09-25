@@ -9,8 +9,6 @@
 "						  GENERAL CONFIG NVIM								  
 "============================================================================
 " vim:set et sw=2
-"highlight Comment cterm=italic gui=italic
-"set spell
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/main.vim'
 let g:user42 = 'gdominic'
 let g:mail42 = 'gdominic@student.42barcelona.com'
@@ -31,6 +29,41 @@ hi Normal guibg = #001a33
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 set number
+let g:ascii = [
+			\'  __  __ *             _   _     *       __           *         _           *         _ _   _                         _ _ ', 
+			\' |  \/  |   *     *   | | | |           / _|         *    *    | |                   (_) | | |    *         *        | | |', 
+			\' | \  / | __ _*_   _  | |_| |__   _*_  | |_ ___  _ __ ___ ___  | |__   ___  __      ___| |_| |__    _   _  ___  _   _| | |', 
+			\' | |\/| |/ _  | | | | | __|  _ \ / _ \ |  _/ _ *|  __/ __/ _ \ |  _ \ / _ \ \ \ /\ / / | __|  _ \ *| | | |/ _ *| | | | | |', 
+			\' | |  | | (_| | |_| | | |_| | | |  __/ | || (_) | | | (_|  __/ | |_) |  __/  \ V  V /| | |_| | | | | |_| | (_) | |_| |_|_|', 
+			\' |_|  |_|\__,_|\__, |  \__|_| |_|\___| |_| \___/|_|  \___\___| |_.__/ \___|   \_/\_/ |_|\__|_| |_|  \__, |\___/ \__,_(_|_)', 
+			\' *        *     __/ |                       *                  *               *                     __/ |                ', 
+			\'    *      *   |___/                *            *                  *                        *      |___/                 ', 
+      \ ]
+let g:startify_custom_header =
+          \ 'startify#pad(g:ascii + startify#fortune#boxed())'
+let g:startify_files_number = 21
+let g:startify_update_oldfiles = 'true'
+let g:startify_session_autoload = 'true'
+let g:startify_session_persistence = 'true'
+let g:startify_fortune_use_unicode = 'true'
+let g:startify_padding_left = 1
+highlight StartifyHeader guifg=#F1EA00
+let g:startify_bookmarks = [ {'a': '~/.Spacevim/init.vim'}, {'b': '~/.Spacevim.d/init.toml'} ]
+let g:startify_session_dir = '~/Desktop/.Spacevim/sessions'
+function! s:list_commits()
+  let git = 'git -C .'
+  let commits = systemlist(git .' log --oneline --decorate | head -n10')
+  let git = 'G'. git[1:]
+  return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
+endfunction
+
+let g:startify_lists = [
+		\	{ 'type': 'files',     'header': ['   Recently files edit ⏱']            },
+		\	{ 'type': 'dir',       'header': ['   Current directory 🗂'] },
+	 	\	{ 'type': 'sessions',  'header': ['   Sessions']       },
+	 	\	{ 'type': 'bookmarks', 'header': ['   Bookmarks 💾']      },
+		\ { 'header': ['   Last Commits ⛓'],        'type': function('s:list_commits') },
+		\ ]
 "=========================KEYMAPS============================================
 "*************
 "MOVING TEXT *

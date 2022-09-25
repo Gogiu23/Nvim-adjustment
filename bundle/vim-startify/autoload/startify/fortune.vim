@@ -65,12 +65,14 @@ endfunction
 
 " Variables {{{1
 let s:cow = [
-      \ '       o',
-      \ '        o   ^__^',
-      \ '         o  (oo)\_______',
-      \ '            (__)\       )\/\',
-      \ '                ||----w |',
-      \ '                ||     ||',
+			\'  __  __               _   _             __                     _                     _ _   _                         _ _ ', 
+			\' |  \/  |             | | | |           / _|                   | |                   (_) | | |                       | | |', 
+			\' | \  / | __ _ _   _  | |_| |__   ___  | |_ ___  _ __ ___ ___  | |__   ___  __      ___| |_| |__    _   _  ___  _   _| | |', 
+			\' | |\/| |/ _  | | | | | __|  _ \ / _ \ |  _/ _ *|  __/ __/ _ \ |  _ \ / _ \ \ \ /\ / / | __|  _ \  | | | |/ _ *| | | | |  ', 
+			\' | |  | | (_| | |_| | | |_| | | |  __/ | || (_) | | | (_|  __/ | |_) |  __/  \ V  V /| | |_| | | | | |_| | (_) | |_| |_|_|', 
+			\' |_|  |_|\__,_|\__, |  \__|_| |_|\___| |_| \___/|_|  \___\___| |_.__/ \___|   \_/\_/ |_|\__|_| |_|  \__, |\___/ \__,_(_|_)', 
+			\'                __/ |                                                                                __/ |                ', 
+			\'               |___/                                                                                |___/                 ', 
       \ ]
 
 let s:unicode = &encoding == 'utf-8' && get(g:, 'startify_fortune_use_unicode')
@@ -118,6 +120,7 @@ let s:predefined_quotes = [
       \ ['If programmers were electricians, parallel programmers would be bomb disposal experts. Both cut wires.', '', '- Bartosz Milewski'],
       \ ['Computers are harder to maintain at high altitude. Thinner air means less cushion between disk heads and platters. Also more radiation.'],
       \ ['Almost every programming language is overrated by its practitioners.', '', '- Larry Wall'],
+      \ ['Tengo al peor padrino', '', '- Gdominic'],
       \ ['Fancy algorithms are slow when n is small, and n is usually small.', '', '- Rob Pike'],
       \ ['Methods are just functions with a special first argument.', '', '- Andrew Gerrand'],
       \
