@@ -11,7 +11,7 @@
 " vim:set et sw=2
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/main.vim'
 let g:user42 = 'gdominic'
-let g:mail42 = 'gdominic@student.42barcelona.com'
+let g:mail42 = 'gdominic:git@student.42barcelona.com'
 set noexpandtab shiftwidth=4 tabstop=4
 syntax enable
 set encoding=utf8
@@ -26,8 +26,8 @@ hi LineNrBelow guifg=#FFD700
 hi CursorLineNr guifg=#FF8C00
 hi Comment gui=italic
 hi Normal guibg = #001a33
-au BufWinLeave *.* mkview
-au BufWinEnter *.* silent loadview
+"au BufWinLeave *.* mkview
+"au BufWinEnter *.* silent loadview
 set number
 let g:ascii = [
 			\'  __  __ *             _   _     *       __           *         _           *         _ _   _                         _ _ ', 
@@ -49,18 +49,22 @@ let g:startify_fortune_use_unicode = 'true'
 let g:startify_padding_left = 1
 highlight StartifyHeader guifg=#F1EA00
 let g:startify_bookmarks = [ {'a': '~/.Spacevim/init.vim'}, {'b': '~/.Spacevim.d/init.toml'} ]
-let g:startify_session_dir = '~/Desktop/.Spacevim/sessions'
+let g:startify_session_dir = '~/Desktop/Student/fractol_git'
 function! s:list_commits()
-  let git = 'git -C .'
-  let commits = systemlist(git .' log --oneline --decorate | head -n10')
-  let git = 'G'. git[1:]
-  return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
+  let commits = systemlist('git log --oneline --decorate | head -n10')
+  return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": ""}')
+endfunction
+
+function! s:grep_sessions()
+	let lst = 'ls | grep .vim'
+	let list = systemlist(lst)
+	return map(list, '{"line": matchstr(v:val, "\\zs.*"), "cmd": ":source ". matchstr(v:val, "\\zs.*")}')
 endfunction
 
 let g:startify_lists = [
 		\	{ 'type': 'files',     'header': ['   Recently files edit ⏱']            },
 		\	{ 'type': 'dir',       'header': ['   Current directory 🗂'] },
-	 	\	{ 'type': 'sessions',  'header': ['   Sessions']       },
+	 	\	{ 'type': function('s:grep_sessions'),	'header': ['   Sessions']	  },
 	 	\	{ 'type': 'bookmarks', 'header': ['   Bookmarks 💾']      },
 		\ { 'header': ['   Last Commits ⛓'],        'type': function('s:list_commits') },
 		\ ]
