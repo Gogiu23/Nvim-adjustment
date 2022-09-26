@@ -11,7 +11,7 @@
 " vim:set et sw=2
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/main.vim'
 let g:user42 = 'gdominic'
-let g:mail42 = 'gdominic:git@student.42barcelona.com'
+let g:mail42 = 'gdominic@student.42barcelona.com'
 set noexpandtab shiftwidth=4 tabstop=4
 syntax enable
 set encoding=utf8
@@ -26,8 +26,6 @@ hi LineNrBelow guifg=#FFD700
 hi CursorLineNr guifg=#FF8C00
 hi Comment gui=italic
 hi Normal guibg = #001a33
-"au BufWinLeave *.* mkview
-"au BufWinEnter *.* silent loadview
 set number
 let g:ascii = [
 			\'  __  __ *             _   _     *       __           *         _           *         _ _   _                         _ _ ', 
