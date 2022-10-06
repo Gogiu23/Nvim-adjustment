@@ -27,6 +27,10 @@ hi CursorLineNr guifg=#FF8C00
 hi Comment gui=italic
 hi Normal guibg = #001a33
 set number
+let NERDTreeShowLineNumbers = 1
+
+"*******************************STARTIFY CONFIG*****************************
+let g:startify_enable_unsafe = 1
 let g:ascii = [
 			\'  __  __ *             _   _     *       __           *         _           *         _ _   _                         _ _ ', 
 			\' |  \/  |   *     *   | | | |           / _|         *    *    | |                   (_) | | |    *         *        | | |', 
@@ -52,7 +56,6 @@ function! s:list_commits()
   let commits = systemlist('git log --oneline --decorate | head -n10')
   return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": ""}')
 endfunction
-
 function! s:grep_sessions()
 	let lst = 'ls | grep .vim'
 	let list = systemlist(lst)
@@ -66,6 +69,7 @@ let g:startify_lists = [
 	 	\	{ 'type': 'bookmarks', 'header': ['   Bookmarks 💾']      },
 		\ { 'header': ['   Last Commits ⛓'],        'type': function('s:list_commits') },
 		\ ]
+
 "=========================KEYMAPS============================================
 "*************
 "MOVING TEXT *
@@ -79,9 +83,8 @@ nnoremap <C-k>    :resize +2<CR>
 nnoremap <C-j>  :resize -2<CR>
 nnoremap <C-l>  :vertical resize -2<CR>
 nnoremap <C-h> :vertical resize +2<CR>
-"==============================================================================
+
 "						AIRLINE CONFIG NEOVIM
-"==============================================================================				
 "let g:airline#extensions#coc#enabled = 1
 "let g:airline#extensions#tabline#formatter = 'unique_tail'
 "Enable fugitive
@@ -113,8 +116,7 @@ let g:airline#extensions#hunks#enabled = 0
 "if !exists('g:airline_symbols')
 "  let g:airline_symbols = {}
 "endif
-"
-"  " unicode symbols
+"********UNICODE SYMBOLS
 "let g:airline_left_sep = '»'
 "let g:airline_left_sep = '▶'
 "let g:airline_right_sep = '«'
@@ -135,8 +137,7 @@ let g:airline#extensions#hunks#enabled = 0
 "let g:airline_symbols.spell = 'Ꞩ'
 "let g:airline_symbols.notexists = 'Ɇ'
 "let g:airline_symbols.whitespace = 'Ξ'
-"
-"" powerline symbols
+"******** POWERLINE SYMBOLS
 "let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
 "let g:airline_right_sep = ''
@@ -147,7 +148,6 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.linenr = ' :'
 let g:airline_symbols.maxlinenr = '☰ '
 "let g:airline_symbols.dirty='⚡'
-
   " old vim-powerline symbols
 ""  let g:airline_left_sep = '⮀'
 ""  let g:airline_left_alt_sep = '⮁'
@@ -156,9 +156,9 @@ let g:airline_symbols.maxlinenr = '☰ '
 ""  let g:airline_symbols.branch = '⭠'
 ""  let g:airline_symbols.readonly = '⭤'
 ""  let g:airline_symbols.linenr = '⭡'
-"==============================================================================
+
+
 "						BATTERYSTATUS CONFIG NEOVIM
-"==============================================================================
 let g:battery#update_tabline = 1    " For tabline.
 let g:battery#update_statusline = 1 " For statusline.
 let g:battery_watch_on_startup = 1
@@ -168,9 +168,9 @@ let g:battery#graph_symbol_null = "⬜️"
 let g:battery#symbol_charging = "❤️"
 let g:battery#symbol_discharging = "💔"
 let g:battery#graph_width = '10'
-"*****************************************************************************#
-"		      			CONFIG DEVICONS AND NERDTREE						  #
-"*****************************************************************************#
+
+
+"************************CONFIG DEVICONS AND NERDTREE 
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_startify = 1
 let g:webdevicons_enable_airline_tabline = 1
@@ -179,9 +179,8 @@ let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:webdevicons_enable_ctrlp = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-"****************************************************************************#
-" 						CONFIG COLORS NERDTREE								 #
-"****************************************************************************#
+
+"*************************CONFIG COLORS NERDTREE
 "Disable unmatch folder and files
 "let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 0
 "let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 0
