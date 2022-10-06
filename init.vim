@@ -163,11 +163,15 @@ let g:battery#update_tabline = 1    " For tabline.
 let g:battery#update_statusline = 1 " For statusline.
 let g:battery_watch_on_startup = 1
 let g:battery#update_interval = 300
-let g:battery#graph_symbol_fill = "🟩"
-let g:battery#graph_symbol_null = "⬜️"
+let g:battery#graph_indicators = [
+      \ '',
+      \ '',
+      \ '',
+      \ '',
+      \ '',
+      \]
 let g:battery#symbol_charging = "❤️"
 let g:battery#symbol_discharging = "💔"
-let g:battery#graph_width = '10'
 
 
 "************************CONFIG DEVICONS AND NERDTREE 
